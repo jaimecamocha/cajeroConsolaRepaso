@@ -38,8 +38,11 @@ function transferir(){
     if(isNaN(monto) || monto <= 0 || monto > saldo){
         console.log("Cantidad inválida. Inténtelo de nuevo.")  
     } else{
+        const cuentaDestino = parseFloat(prompt("Ingrese la cuenta destino: "));
+        esValidaEstructuraIBAN(cuentaDestino);
+        console.log(`Se han transferido ${monto.toFixed(2)} € a la cuenta ${cuentaDestino}`);
         saldo = saldo - monto;
-        console.log(`Se han transferido ${monto.toFixed(2)} €`);        
+        mostrarSaldo();
     } 
 }
 
@@ -50,6 +53,18 @@ function iniciarSesion(){
 
 // operaciones del cajero
 function operacionesCajero(){
+
+}
+
+/**
+ * Función que verifica si un valor posee una estructura valida de cuenta IBAN.
+ * @param {String} strValue String que se desea revisar.
+ * @returns {boolean} Indicando si cumple o no las restricciones
+ */
+
+function esValidaEstructuraIBAN(cuentaAValidar){
+
+    return /[a-zA-Z]{2}[0-9]{20}$/g.test(cuentaAValidar);
 
 }
 
