@@ -17,7 +17,7 @@ function depositar(){
         saldo = saldo + deposito;
         console.log(`Se han depositado ${deposito.toFixed(2)} €`);
     }
-}
+} 
 
 function retirar(){
     const retiro = parseFloat(prompt("Ingrese la cantidad de retirar: "));
