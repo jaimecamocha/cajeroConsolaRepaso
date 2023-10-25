@@ -40,7 +40,7 @@ function transferir(){
     } else{
         saldo = saldo - monto;
         console.log(`Se han transferido ${monto.toFixed(2)} €`);        
-    }
+    } 
 }
 
 // iniciar sesión
