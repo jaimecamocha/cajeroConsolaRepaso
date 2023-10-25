@@ -54,6 +54,14 @@ function iniciarSesion(){
         console.log(`PIN incorrecto. Le quedan ${intentosRestantes} intentos.`);
         pin = prompt("Ingrese su PIN: ");
     }
+
+    if(pin = PIN_CORRECTO){
+        console.log("INICIO DE SESIÓN EXITOSO");
+        mostrarSaldo();
+        operacionesCajero();
+    } else{
+        console.log("PIN incorrecto. El cajero se ha bloqueado");
+    }
 }
 
 // operaciones del cajero
