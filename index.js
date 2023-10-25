@@ -39,7 +39,7 @@ function transferir(){
         console.log("Cantidad inválida. Inténtelo de nuevo.")  
     } else{
         const cuentaDestino = parseFloat(prompt("Ingrese la cuenta destino: "));
-        esValidaEstructuraIBAN(cuentaDestino);
+        //esValidaEstructuraIBAN(cuentaDestino);
         console.log(`Se han transferido ${monto.toFixed(2)} € a la cuenta ${cuentaDestino}`);
         saldo = saldo - monto;
         mostrarSaldo();
@@ -48,24 +48,21 @@ function transferir(){
 
 // iniciar sesión
 function iniciarSesion(){
-
+    let pin = prompt("Ingrese su PIN: ");
+    while(pin !== PIN_CORRECTO && intentosRestantes > 1){
+        intentosRestantes --;
+        console.log(`PIN incorrecto. Le quedan ${intentosRestantes} intentos.`);
+        pin = prompt("Ingrese su PIN: ");
+    }
 }
 
 // operaciones del cajero
 function operacionesCajero(){
 
 }
-
-/**
- * Función que verifica si un valor posee una estructura valida de cuenta IBAN.
- * @param {String} strValue String que se desea revisar.
- * @returns {boolean} Indicando si cumple o no las restricciones
- */
-
+ // validar cuenta bancaria (no se va a usar)
 function esValidaEstructuraIBAN(cuentaAValidar){
-
     return /[a-zA-Z]{2}[0-9]{20}$/g.test(cuentaAValidar);
-
 }
 
 // llamada  la función de inicio de sesión
